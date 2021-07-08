@@ -57,7 +57,7 @@ def enter():
         if in_user(user):            
             break                    
     
-def print_user_list():
+def print_user_list(_):
     for user in users:
         print("{} {}\n".format(user[0], user[1]))
     return 0
