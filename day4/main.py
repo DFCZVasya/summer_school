@@ -58,7 +58,9 @@ def enter():
             break                    
     
 def print_user_list():
-    pass
+    for user in users:
+        print("{} {}\n".format(user[0], user[1]))
+    return 0
 
 def change_name(user):
     pass
