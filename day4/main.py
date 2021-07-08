@@ -53,7 +53,9 @@ def enter():
         if compare_password(password, user):
             break
         print("try again")
-    print("WELCOME!")
+    while 1:                         
+        if in_user(user):            
+            break                    
     
 def print_user_list():
     pass
@@ -64,15 +66,15 @@ def change_name(user):
 def change_password(user):
     pass
 
-def log_out():
-    pass
+def log_out(_):
+    return 1
 
 def in_user(user):
     mods = {'1': print_user_list,
            '2': change_name,
            '3': change_password,
            '4': log_out}
-           
+
     print("1 - user list")
     print("2 - change name")
     print("3 - change password")
@@ -80,7 +82,7 @@ def in_user(user):
 
     mod = get_mode_number(mods)
     if mod:
-        mods[mod](user)
+        return mods[mod](user)
     else:
         print("wrong number!") 
 
