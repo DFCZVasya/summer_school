@@ -71,6 +71,11 @@ def change_name(user):
             break
         print("bad name, try again!")
     user[0] = new_name
+    f = open("database", 'w')
+    for user in users:
+        f.write("{} {}\n".format(user[0], user[1]))
+    print(users)
+    f.close()
     return 0
         
 
@@ -87,6 +92,11 @@ def change_password(user):
         if password1 == password2:
             break
     user[1] = password1
+    f = open("database", 'w')
+    for user in users:
+        f.write("{} {}\n".format(user[0], user[1]))
+    print(users)
+    f.close()
     return 0
 
 def log_out(_):
