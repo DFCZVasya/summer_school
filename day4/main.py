@@ -1,5 +1,4 @@
 users = []
-#from compare import *
 
 def compare_user_name(name):
     for user in users:
@@ -20,9 +19,12 @@ def add_new_user():
         if not flag:
             break
         print("bad name, try again!")
-    
-    print("enter password")
-    password1 = input()
+    while 1:
+        print("enter password")
+        password1 = input()
+        if len(password1) > 3:
+            break
+        print("password is too short")
     while 1:
         print("repeat password")
         password2 = input()
