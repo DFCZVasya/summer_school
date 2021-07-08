@@ -1,6 +1,7 @@
 from main import users
 
 def compare_user_name(name):
+    print(users)
     for user in users:
         if name == user[0]:
             return 1, user

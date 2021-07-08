@@ -1,5 +1,16 @@
-users = [["test", "test"]]
-from compare import *
+users = []
+#from compare import *
+
+def compare_user_name(name):
+    for user in users:
+        if name == user[0]:
+            return 1, user
+    return 0, 0
+
+def compare_password(pwd, user):
+    if pwd == user[1]:
+        return 1
+    return 0
 
 def add_new_user():
     print("enter user name")
@@ -19,10 +30,14 @@ def add_new_user():
             break
     
     users.append([user_name, password1])
+    f = open("database", 'w')
+    for user in users:
+        f.write("{} {}\n".format(user[0], user[1]))
     print(users)
 
 
 def enter():
+    print(users)
     while 1:
         print("enter user name")
         flag, user = compare_user_name(input())
@@ -47,8 +62,7 @@ def get_mode_number(mods):
 def menu():
     mods = {'1': enter,
             '2': add_new_user,
-            '3': exit}
-            
+            '3': exit}   
     print("1 - enter")
     print("2 - new user")
     print("3 - exit")
@@ -61,14 +75,14 @@ def menu():
     
 
 def main():
+    while 1:
+        menu()
+
+if __name__ == "__main__":
     f = open("database", 'r')
     users = f.read().split('\n')
     for i in range(len(users)):
         users[i] = users[i].split()
     users.pop(len(users) - 1)
     f.close()
-    while 1:
-        menu()
-
-if __name__ == "__main__":
     main()
