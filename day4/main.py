@@ -55,6 +55,25 @@ def enter():
         print("try again")
     print("WELCOME!")
     
+
+
+def in_user(user):
+   mods = {'1': print_user_list,
+            '2': change_name,
+            '3': change_password,
+            '4': log_out}   
+    print("1 - user list")
+    print("2 - change name")
+    print("3 - change password")
+    print("4 - log out")
+
+    mod = get_mode_number(mods)
+    if mod:
+        mods[mod]()
+    else:
+        print("wrong number!") 
+
+
 def get_mode_number(mods):
     mod = input()
     if mod in mods:
