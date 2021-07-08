@@ -34,6 +34,7 @@ def add_new_user():
     for user in users:
         f.write("{} {}\n".format(user[0], user[1]))
     print(users)
+    f.close()
 
 
 def enter():
