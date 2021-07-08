@@ -63,10 +63,31 @@ def print_user_list():
     return 0
 
 def change_name(user):
-    pass
+    while 1:
+        print("enter new name")
+        new_name = input()
+        flag, _ = compare_user_name(new_name)
+        if not flag:
+            break
+        print("bad name, try again!")
+    user[0] = new_name
+    return 0
+        
 
 def change_password(user):
-    pass
+    while 1:
+        print("enter new password")
+        password1 = input()
+        if len(password1) > 3:
+            break
+        print("password is too short")
+    while 1:
+        print("repeat password")
+        password2 = input()
+        if password1 == password2:
+            break
+    user[1] = password1
+    return 0
 
 def log_out(_):
     return 1
