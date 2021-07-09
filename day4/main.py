@@ -31,7 +31,7 @@ def add_new_user():
         if password1 == password2:
             break
     
-    users.append([user_name, password1])
+    users.append([user_name, password1, 0])
     f = open("database", 'w')
     for user in users:
         f.write("{} {} {}\n".format(user[0], user[1], 0))
@@ -145,8 +145,9 @@ def main():
 if __name__ == "__main__":
     f = open("database", 'r')
     users = f.read().split('\n')
-    for i in range(len(users)):
+    for i in range(len(users) - 1):
         users[i] = users[i].split()
+        users[i][2] = int(users[i][2])
     users.pop(len(users) - 1)
     f.close()
     main()
