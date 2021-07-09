@@ -34,10 +34,9 @@ def add_new_user():
     users.append([user_name, password1])
     f = open("database", 'w')
     for user in users:
-        f.write("{} {}\n".format(user[0], user[1]))
+        f.write("{} {} {}\n".format(user[0], user[1], 0))
     print(users)
     f.close()
-
 
 def enter():
     print(users)
@@ -59,7 +58,7 @@ def enter():
     
 def print_user_list(_):
     for user in users:
-        print("{} {}\n".format(user[0], user[1]))
+        print("{}".format(user[0]))
     return 0
 
 def change_name(user):
@@ -73,11 +72,10 @@ def change_name(user):
     user[0] = new_name
     f = open("database", 'w')
     for user in users:
-        f.write("{} {}\n".format(user[0], user[1]))
+        f.write("{} {} {}\n".format(user[0], user[1], user[2]))
     print(users)
     f.close()
-    return 0
-        
+    return 0        
 
 def change_password(user):
     while 1:
@@ -94,7 +92,7 @@ def change_password(user):
     user[1] = password1
     f = open("database", 'w')
     for user in users:
-        f.write("{} {}\n".format(user[0], user[1]))
+        f.write("{} {} {}\n".format(user[0], user[1], user[2]))
     print(users)
     f.close()
     return 0
@@ -119,7 +117,6 @@ def in_user(user):
     else:
         print("wrong number!") 
 
-
 def get_mode_number(mods):
     mod = input()
     if mod in mods:
@@ -141,7 +138,6 @@ def menu():
     else:
         print("wrong number!")
     
-
 def main():
     while 1:
         menu()
