@@ -5,11 +5,19 @@ def add_digit(digit):
     calc.delete(0, END)
     calc.insert(0, value)
 
+def add_operation(operation):
+    value = calc.get()
+    if value[-1] in '+-*/':
+        value = value[:-1]
+    value = value + operation
+    calc.delete(0, END)
+    calc.insert(0, value)
+
 def make_digit_button(digit):
     return Button(text=digit, font = ('Arial', 20), bd = 2, command=lambda : add_digit(digit))
 
 def make_operation_button(operation):
-    return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_digit(operation))
+    return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_operation(operation))
 
 def make_calc_button(operation):
     return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_digit(operation))
