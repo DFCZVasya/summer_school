@@ -11,6 +11,9 @@ def make_digit_button(digit):
 def make_operation_button(operation):
     return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_digit(operation))
 
+def make_calc_button(operation):
+    return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_digit(operation))
+
 root = Tk()
 root.title("calculator")
 root.geometry("240x270")
@@ -33,6 +36,8 @@ make_operation_button('+').grid(row = 1, column=3, stick = 'wens', padx = 2, pad
 make_operation_button('-').grid(row = 2, column=3, stick = 'wens', padx = 2, pady = 2)
 make_operation_button('*').grid(row = 3, column=3, stick = 'wens', padx = 2, pady = 2)
 make_operation_button('/').grid(row = 4, column=3, stick = 'wens', padx = 2, pady = 2)
+
+make_calc_button('=').grid(row = 4, column=0, stick = 'wens', padx = 2, pady = 2)
 
 root.grid_columnconfigure(0,minsize = 60)
 root.grid_columnconfigure(1,minsize = 60)
