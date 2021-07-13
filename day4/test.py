@@ -1,8 +1,2 @@
-f = open("database", 'r')
-a = f.read().split('\n')
-print(a)
-for i in range(len(a)):
-    a[i] = a[i].split()
-print(a)
-a.pop(len(a) - 1)
-print(a)
+import random
+print([i for i in range(100) if i in [random.randint(0,99) for j in range(100)] and i in [random.randint(0,99) for j in range(100)]])
