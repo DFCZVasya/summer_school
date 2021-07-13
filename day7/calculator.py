@@ -13,7 +13,7 @@ def make_operation_button(operation):
 
 root = Tk()
 root.title("calculator")
-root.geometry("240x260")
+root.geometry("240x270")
 
 calc = Entry(root, justify=RIGHT, font = ('Arial', 15), width= 15)
 calc.grid(row = 0, column = 0, columnspan=4, stick = 'we')
