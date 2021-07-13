@@ -13,6 +13,12 @@ def add_operation(operation):
     calc.delete(0, END)
     calc.insert(0, value)
 
+def calculate():
+    value = calc.get()
+    resulr = eval(value)
+    calc.delete(0, END)
+    calc.insert(0, resulr)
+
 def make_digit_button(digit):
     return Button(text=digit, font = ('Arial', 20), bd = 2, command=lambda : add_digit(digit))
 
@@ -20,7 +26,7 @@ def make_operation_button(operation):
     return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_operation(operation))
 
 def make_calc_button(operation):
-    return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : add_digit(operation))
+    return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : calculate())
 
 root = Tk()
 root.title("calculator")
