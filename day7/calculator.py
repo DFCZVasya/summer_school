@@ -29,6 +29,11 @@ make_digit_button('8').grid(row = 3, column=1, stick = 'wens', padx = 2, pady = 
 make_digit_button('9').grid(row = 3, column=2, stick = 'wens', padx = 2, pady = 2)
 make_digit_button('0').grid(row = 4, column=1, stick = 'wens', padx = 2, pady = 2)
 
+make_operation_button('+').grid(row = 1, column=3, stick = 'wens', padx = 2, pady = 2)
+make_operation_button('-').grid(row = 2, column=3, stick = 'wens', padx = 2, pady = 2)
+make_operation_button('*').grid(row = 3, column=3, stick = 'wens', padx = 2, pady = 2)
+make_operation_button('/').grid(row = 4, column=3, stick = 'wens', padx = 2, pady = 2)
+
 root.grid_columnconfigure(0,minsize = 60)
 root.grid_columnconfigure(1,minsize = 60)
 root.grid_columnconfigure(2,minsize = 60)
