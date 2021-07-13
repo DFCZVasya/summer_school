@@ -16,7 +16,7 @@ root.title("calculator")
 root.geometry("240x260")
 
 calc = Entry(root, justify=RIGHT, font = ('Arial', 15), width= 15)
-calc.grid(row = 0, column = 0, columnspan=3, stick = 'we')
+calc.grid(row = 0, column = 0, columnspan=4, stick = 'we')
 
 make_digit_button('1').grid(row = 1, column=0, stick = 'wens', padx = 2, pady = 2)
 make_digit_button('2').grid(row = 1, column=1, stick = 'wens', padx = 2, pady = 2)
@@ -37,6 +37,7 @@ make_operation_button('/').grid(row = 4, column=3, stick = 'wens', padx = 2, pad
 root.grid_columnconfigure(0,minsize = 60)
 root.grid_columnconfigure(1,minsize = 60)
 root.grid_columnconfigure(2,minsize = 60)
+root.grid_columnconfigure(3,minsize = 60)
 
 root.grid_rowconfigure(1,minsize = 60)
 root.grid_rowconfigure(2,minsize = 60)
