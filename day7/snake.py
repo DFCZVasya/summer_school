@@ -29,17 +29,17 @@ canvas = Canvas(root, width=game_width, height=game_height)
 canvas.pack()
 
 for i in range(presents_size):
-    temp_x = random.randint(0,49)
-    temp_y = random.randint(0,49)
-    canvas.create_rectangle(x*snake_item, y*snake_item,
+    x = temp_x = random.randint(0,49)
+    y = temp_y = random.randint(0,49)
+    canvas.create_oval(x*snake_item, y*snake_item,
                              x*snake_item + snake_item, 
                              y*snake_item+snake_item,
-                             fill = snake_color2)
+                             fill = "black")
     
-    canvas.create_rectangle(x*snake_item + 2, y*snake_item + 2,
+    canvas.create_oval(x*snake_item + 2, y*snake_item + 2,
                              x*snake_item + snake_item - 2, 
                              y*snake_item+snake_item - 2,
-                             fill = snake_color1)
+                             fill = "blue")
     presents_list.append([temp_x, temp_y])
 
 root.update()
