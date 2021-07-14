@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 def add_digit(digit):
     value = calc.get() + digit
@@ -23,9 +24,16 @@ def calculate():
     if len(value) and value[-1] in '+-*/':
         value = value[:-1] + value[-1] + value[:-1]
     if len(value):
-        resulr = eval(value)
-        calc.delete(0, END)
-        calc.insert(0, resulr)
+        try:
+            resulr = eval(value)
+            calc.delete(0, END)
+            calc.insert(0, resulr)
+        except ZeroDivisionError:
+            messagebox.showinfo('ERROR', 'Devision by zero')
+            calc.delete(0, END)
+        except (NameError, SyntaxError, TypeError):
+            messagebox.showinfo('ERROR', 'Problems with syntax')
+            calc.delete(0, END)
 
 def clear():
     value = calc.get()
