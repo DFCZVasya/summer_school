@@ -14,6 +14,9 @@ snake_y = 24
 snake_x_nav = 0
 snake_y_nav = 0
 
+snake_list = []
+snake_size = 3
+
 root = Tk()
 root.title("Snake v1.0")
 
@@ -24,15 +27,22 @@ canvas.pack()
 root.update()
 
 def snake_print_item(canvas, x, y):
-    canvas.create_rectangle(x*snake_item, y*snake_item,
+    global snake_list
+    id1 = canvas.create_rectangle(x*snake_item, y*snake_item,
                              x*snake_item + snake_item, 
                              y*snake_item+snake_item,
                              fill = snake_color2)
     
-    canvas.create_rectangle(x*snake_item + 2, y*snake_item + 2,
+    id2 = canvas.create_rectangle(x*snake_item + 2, y*snake_item + 2,
                              x*snake_item + snake_item - 2, 
                              y*snake_item+snake_item - 2,
                              fill = snake_color1)
+    snake_list.append([x,y,id1,id2])
+    if len(snake_list) > snake_size:
+        tmp_item = snake_list.pop(0)
+        canvas.delete(tmp_item[2])
+        canvas.delete(tmp_item[3])
+
 
 snake_print_item(canvas, snake_x, snake_y)
 
