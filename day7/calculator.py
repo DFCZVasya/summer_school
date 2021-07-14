@@ -11,6 +11,8 @@ def add_operation(operation):
         return
     if value[-1] in '+-*/':
         value = value[:-1]
+    elif '+' in value or '-' in value or '*' in value or '/' in value:
+       value = str(eval(value)) 
     value = value + operation
     calc.delete(0, END)
     calc.insert(0, value)
