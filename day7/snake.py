@@ -66,8 +66,8 @@ def check_if_present(x, y):
     global presents_list
     for i in range(len(presents_list)):
         if presents_list[i][0] == x and presents_list[i][1] == y:
-            canvas.delete(presents_list[2])
-            canvas.delete(presents_list[3])
+            canvas.delete(presents_list[i][2])
+            canvas.delete(presents_list[i][3])
             snake_size += 1
             presents_list.pop(i)
             return
