@@ -1,5 +1,6 @@
 from tkinter import *
 import random
+import time
 
 game_width = 500
 game_height = 500
@@ -42,7 +43,12 @@ for i in range(presents_size):
                              fill = "blue")
     presents_list.append([temp_x, temp_y, id1, id2])
 
-root.update()
+def can_we_delete():
+    if len(snake_list) > snake_size:
+        tmp_item = snake_list.pop(0)
+        canvas.delete(tmp_item[2])
+        canvas.delete(tmp_item[3])
+
 
 def snake_print_item(canvas, x, y):
     global snake_list
@@ -56,10 +62,6 @@ def snake_print_item(canvas, x, y):
                              y*snake_item+snake_item - 2,
                              fill = snake_color1)
     snake_list.append([x,y,id1,id2])
-    if len(snake_list) > snake_size:
-        tmp_item = snake_list.pop(0)
-        canvas.delete(tmp_item[2])
-        canvas.delete(tmp_item[3])
 
 def check_if_present(x, y):
     global snake_size
@@ -77,18 +79,24 @@ snake_print_item(canvas, snake_x, snake_y)
 def snake_move(event):
     global snake_x
     global snake_y
+    global snake_x_nav
+    global snake_y_nav
     if event.keysym == "Up":
         snake_x_nav = 0
         snake_y_nav = -1
+        can_we_delete()
     elif event.keysym == "Down":
         snake_x_nav = 0
         snake_y_nav = 1
+        can_we_delete()
     elif event.keysym == "Left":
         snake_x_nav = -1
         snake_y_nav = 0
+        can_we_delete()
     elif event.keysym == "Right":
         snake_x_nav = 1
         snake_y_nav = 0
+        can_we_delete()
     snake_x  += snake_x_nav
     snake_y  += snake_y_nav
     snake_print_item(canvas, snake_x, snake_y)
@@ -98,5 +106,15 @@ canvas.bind_all("<KeyPress-Left>", snake_move)
 canvas.bind_all("<KeyPress-Right>", snake_move)
 canvas.bind_all("<KeyPress-Up>", snake_move)
 canvas.bind_all("<KeyPress-Down>", snake_move)
+
+while 1:
+    can_we_delete()
+    snake_x += snake_x_nav
+    snake_y += snake_y_nav
+    snake_print_item(canvas, snake_x, snake_y)
+    check_if_present(snake_x, snake_y)
+    root.update_idletasks()
+    root.update()
+    time.sleep(0.15)
 
 root.mainloop()
