@@ -1,4 +1,5 @@
 from tkinter import *
+import random
 
 game_width = 500
 game_height = 500
@@ -17,13 +18,30 @@ snake_y_nav = 0
 snake_list = []
 snake_size = 3
 
+presents_list = []
+presents_size = 15
+
 root = Tk()
 root.title("Snake v1.0")
 
 root.resizable(0,0)
-
 canvas = Canvas(root, width=game_width, height=game_height)
 canvas.pack()
+
+for i in range(presents_size):
+    temp_x = random.randint(0,49)
+    temp_y = random.randint(0,49)
+    canvas.create_rectangle(x*snake_item, y*snake_item,
+                             x*snake_item + snake_item, 
+                             y*snake_item+snake_item,
+                             fill = snake_color2)
+    
+    canvas.create_rectangle(x*snake_item + 2, y*snake_item + 2,
+                             x*snake_item + snake_item - 2, 
+                             y*snake_item+snake_item - 2,
+                             fill = snake_color1)
+    presents_list.append([temp_x, temp_y])
+
 root.update()
 
 def snake_print_item(canvas, x, y):
