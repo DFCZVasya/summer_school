@@ -31,16 +31,16 @@ canvas.pack()
 for i in range(presents_size):
     x = temp_x = random.randint(0,49)
     y = temp_y = random.randint(0,49)
-    canvas.create_oval(x*snake_item, y*snake_item,
+    id1 = canvas.create_oval(x*snake_item, y*snake_item,
                              x*snake_item + snake_item, 
                              y*snake_item+snake_item,
                              fill = "black")
     
-    canvas.create_oval(x*snake_item + 2, y*snake_item + 2,
+    id2 = canvas.create_oval(x*snake_item + 2, y*snake_item + 2,
                              x*snake_item + snake_item - 2, 
                              y*snake_item+snake_item - 2,
                              fill = "blue")
-    presents_list.append([temp_x, temp_y])
+    presents_list.append([temp_x, temp_y, id1, id2])
 
 root.update()
 
@@ -61,6 +61,16 @@ def snake_print_item(canvas, x, y):
         canvas.delete(tmp_item[2])
         canvas.delete(tmp_item[3])
 
+def check_if_present(x, y):
+    global snake_size
+    global presents_list
+    for i in range(len(presents_list)):
+        if presents_list[i][0] == x and presents_list[i][1] == y:
+            canvas.delete(presents_list[2])
+            canvas.delete(presents_list[3])
+            snake_size += 1
+            presents_list.pop(i)
+            return
 
 snake_print_item(canvas, snake_x, snake_y)
 
@@ -82,6 +92,7 @@ def snake_move(event):
     snake_x  += snake_x_nav
     snake_y  += snake_y_nav
     snake_print_item(canvas, snake_x, snake_y)
+    check_if_present(snake_x, snake_y)
 
 canvas.bind_all("<KeyPress-Left>", snake_move)
 canvas.bind_all("<KeyPress-Right>", snake_move)
