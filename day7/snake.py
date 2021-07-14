@@ -36,4 +36,28 @@ def snake_print_item(canvas, x, y):
 
 snake_print_item(canvas, snake_x, snake_y)
 
+def snake_move(event):
+    global snake_x
+    global snake_y
+    if event.keysym == "Up":
+        snake_x_nav = 0
+        snake_y_nav = -1
+    elif event.keysym == "Down":
+        snake_x_nav = 0
+        snake_y_nav = 1
+    elif event.keysym == "Left":
+        snake_x_nav = -1
+        snake_y_nav = 0
+    elif event.keysym == "Right":
+        snake_x_nav = 1
+        snake_y_nav = 0
+    snake_x  += snake_x_nav
+    snake_y  += snake_y_nav
+    snake_print_item(canvas, snake_x, snake_y)
+
+canvas.bind_all("<KeyPress-Left>", snake_move)
+canvas.bind_all("<KeyPress-Right>", snake_move)
+canvas.bind_all("<KeyPress-Up>", snake_move)
+canvas.bind_all("<KeyPress-Down>", snake_move)
+
 root.mainloop()
