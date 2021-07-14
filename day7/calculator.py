@@ -54,13 +54,27 @@ def make_calc_button(operation):
 def make_clear_button(operation):
     return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : clear())
 
+def press_key(event):
+    if event.char.isdigit():
+        add_digit(event.char)
+    elif event.char in '+-*/':
+        add_operation(event.char)
+    elif event.char == '\r':
+        calculate()
+    elif event.char == '\x08':
+        clear()
 
 root = Tk()
 root.title("calculator")
 root.geometry("240x270")
 
+root.bind('<Key>', press_key)
+
+
 calc = Entry(root, justify=RIGHT, font = ('Arial', 15), width= 15)
 calc.grid(row = 0, column = 0, columnspan=4, stick = 'we', padx = 2)
+
+
 
 make_digit_button('1').grid(row = 1, column=0, stick = 'wens', padx = 2, pady = 2)
 make_digit_button('2').grid(row = 1, column=1, stick = 'wens', padx = 2, pady = 2)
