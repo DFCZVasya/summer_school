@@ -7,6 +7,8 @@ def add_digit(digit):
 
 def add_operation(operation):
     value = calc.get()
+    if not len(value):
+        return
     if value[-1] in '+-*/':
         value = value[:-1]
     value = value + operation
@@ -15,9 +17,19 @@ def add_operation(operation):
 
 def calculate():
     value = calc.get()
-    resulr = eval(value)
+    if len(value) and value[-1] in '+-*/':
+        value = value[:-1] + value[-1] + value[:-1]
+    if len(value):
+        resulr = eval(value)
+        calc.delete(0, END)
+        calc.insert(0, resulr)
+
+def clear():
+    value = calc.get()
+    value = value[:-1]
     calc.delete(0, END)
-    calc.insert(0, resulr)
+    calc.insert(0, value)
+
 
 def make_digit_button(digit):
     return Button(text=digit, font = ('Arial', 20), bd = 2, command=lambda : add_digit(digit))
@@ -27,6 +39,10 @@ def make_operation_button(operation):
 
 def make_calc_button(operation):
     return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : calculate())
+
+def make_clear_button(operation):
+    return Button(text=operation, font = ('Arial', 20), bd = 2, command=lambda : clear())
+
 
 root = Tk()
 root.title("calculator")
@@ -52,6 +68,8 @@ make_operation_button('*').grid(row = 3, column=3, stick = 'wens', padx = 2, pad
 make_operation_button('/').grid(row = 4, column=3, stick = 'wens', padx = 2, pady = 2)
 
 make_calc_button('=').grid(row = 4, column=0, stick = 'wens', padx = 2, pady = 2)
+
+make_clear_button('<-').grid(row = 4, column=2, stick = 'wens', padx = 2, pady = 2)
 
 root.grid_columnconfigure(0,minsize = 60)
 root.grid_columnconfigure(1,minsize = 60)
