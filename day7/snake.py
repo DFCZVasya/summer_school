@@ -8,6 +8,12 @@ snake_item = 10
 snake_color1 = "red"
 snake_color2 = "yellow"
 
+snake_x = 24
+snake_y = 24
+
+snake_x_nav = 0
+snake_y_nav = 0
+
 root = Tk()
 root.title("Snake v1.0")
 
@@ -28,5 +34,6 @@ def snake_print_item(canvas, x, y):
                              y*snake_item+snake_item - 2,
                              fill = snake_color1)
 
+snake_print_item(canvas, snake_x, snake_y)
 
 root.mainloop()
