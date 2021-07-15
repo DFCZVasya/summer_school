@@ -8,8 +8,8 @@ pygame.display.set_caption("New Game!")
 
 x = 220
 y = 420
-width = 40
-height = 60
+width = 60
+height = 71
 speed = 10
 
 isJump = False
@@ -35,7 +35,12 @@ pygame.image.load('pygame_left_5.png'),
 pygame.image.load('pygame_left_6.png')]
 
 playerStand = pygame.image.load('pygame_idle.png')
+bg = pygame.image.load('pygame_bg.jpg')
 
+def draw_window():
+    win.blit(bg, (0,0))
+    pygame.draw.rect(win, (0,255,0), (x, y, width, height))
+    pygame.draw.rect(win, (150,75,0), (0, 480, 500, 20))
 
 run = True
 while run:
@@ -65,10 +70,8 @@ while run:
             JumpCount = 10    
     #if keys[pygame.K_DOWN] and y < 500 - height - 5 - 20:
     #    y += speed
-
-    win.fill((0,0,0))
-    pygame.draw.rect(win, (0,255,0), (x, y, width, height))
-    pygame.draw.rect(win, (150,75,0), (0, 480, 500, 20))
+    draw_window()
+   
     pygame.display.update()
 
 
