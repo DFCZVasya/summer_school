@@ -15,6 +15,28 @@ speed = 10
 isJump = False
 JumpCount = 10
 
+left = False
+right = False
+
+animCount = 0
+
+walkRight = [pygame.image.load('pygame_right_1.png'),
+pygame.image.load('pygame_right_2.png'),
+pygame.image.load('pygame_right_3.png'),
+pygame.image.load('pygame_right_4.png'),
+pygame.image.load('pygame_right_5.png'),
+pygame.image.load('pygame_right_6.png')]
+
+walkLeft = [pygame.image.load('pygame_left_1.png'),
+pygame.image.load('pygame_left_2.png'),
+pygame.image.load('pygame_left_3.png'),
+pygame.image.load('pygame_left_4.png'),
+pygame.image.load('pygame_left_5.png'),
+pygame.image.load('pygame_left_6.png')]
+
+playerStand = pygame.image.load('pygame_idle.png')
+
+
 run = True
 while run:
     pygame.time.delay(50)
