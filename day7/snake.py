@@ -115,6 +115,6 @@ while 1:
     check_if_present(snake_x, snake_y)
     root.update_idletasks()
     root.update()
-    time.sleep(0.15)
+    time.sleep(0.1)
 
 root.mainloop()
