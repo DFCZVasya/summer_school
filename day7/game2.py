@@ -28,7 +28,10 @@ while run:
         x -= speed
     if keys[pygame.K_RIGHT] and x < 500 - width - 5:
         x += speed
-    if keys[pygame.K_UP] and y > 5:
+    if not isJump:
+        if keys[pygame.K_UP] and y > 5:
+            isJump = True
+    else:
         if JumpCount >= -10:
             if JumpCount < 0:
                 y += (JumpCount ** 2) / 2    
