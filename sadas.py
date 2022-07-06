@@ -5,7 +5,7 @@ def registration():
     name = input("enter name: ")
     password1 = input("enter password: ")
     password2 = input("enter password again: ")
-    if password1 == password2:
+    if password1 != password2:
         print("passwords are not equal!")
         return False
 
