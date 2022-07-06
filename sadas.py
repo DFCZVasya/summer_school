@@ -31,9 +31,9 @@ def main():
     print("2 - regestration")
     result = input()
     if result == "1":
-        login()
+        print(login())
     elif result == "2":
-        registration()
+        print(registration())
     else:
         print("bad input")
 
