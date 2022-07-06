@@ -13,9 +13,8 @@ def registration():
         if name == user[0]:
             print("name is already taken!")
             return False
-
-
     users.append([name, password1])
+    print(users)
     return True    
 
 def login():
