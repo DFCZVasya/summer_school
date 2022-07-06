@@ -1,6 +1,5 @@
 users = [["test", "test"], ["admin", "admin"]]
 
-
 def registration():
     name = input("enter name: ")
     password1 = input("enter password: ")
@@ -36,6 +35,13 @@ def main():
     else:
         print("bad input")
 
+# Доделать меню используя результаты прошлых задач и 
+# предлжить зарегистрированному пользователю использовать одну из 
+# функций (arithmeticm, is_year_leap, square, season)
+#
+#
+def menu():
+    pass
 
 if __name__=="__main__":
     main()
