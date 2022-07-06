@@ -27,7 +27,15 @@ def login():
     return False
 
 def main():
-    pass
+    print("1 - login")
+    print("2 - regestration")
+    result = input()
+    if result == "1":
+        login()
+    elif result == "2":
+        registration()
+    else:
+        print("bad input")
 
 
 if __name__=="__main__":
