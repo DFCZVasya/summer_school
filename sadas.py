@@ -15,10 +15,13 @@ def registration():
             return False
     users.append([name, password1])
     print(users)
-    database = open(filename, "w")
-    for user in users:
-        database.write(user[0] + ',' + user[1] + '\n')
-    database.close()
+    try:
+        database = open(filename, "w")
+        for user in users:
+            database.write(user[0] + ',' + user[1] + '\n')
+        database.close()
+    except:
+        return False
     return True    
 
 def login():
@@ -30,9 +33,15 @@ def login():
     return False
 
 def readDataBase():
+    global users
     dataBase = open(filename, "r")
     a = dataBase.read()
+    a = a.split("\n")
+    a.pop()
+    for i in range(len(a)):
+        a[i] = a[i].split(",")
     print(a)
+    users = a.copy()
     dataBase.close()
 
 
@@ -43,7 +52,6 @@ def main():
         readDataBase()
     except:
         print("can't read databse!")
-    
     print("1 - login")
     print("2 - regestration")
     result = input()
