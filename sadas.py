@@ -1,7 +1,9 @@
 users = [["test", "test"], ["admin", "admin"]]
 filename = "data_base.csv"
+currentUserName = ""
 
 def registration():
+    global currentUserName
     name = input("enter name: ")
     password1 = input("enter password: ")
     password2 = input("enter password again: ")
@@ -22,13 +24,16 @@ def registration():
         database.close()
     except:
         return False
+    currentUserName = name
     return True    
 
 def login():
+    global currentUserName
     name = input("enter name: ")
     password = input("enter password: ")
     for user in users:
         if name == user[0] and password == user[1]:
+            currentUserName = name
             return True
     return False
 
@@ -44,8 +49,9 @@ def readDataBase():
     users = a.copy()
     dataBase.close()
 
-
-
+# дописать новые пункты , где можно будет 
+# сменить имя и пароль (не забываем проверки)
+#
 
 def main():
     try:
