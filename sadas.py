@@ -15,6 +15,9 @@ def registration():
             return False
     users.append([name, password1])
     print(users)
+    database = open(filename, "w")
+    for user in users:
+        database.write(user[0] + ',' + user[1] + '\n')
     return True    
 
 def login():
@@ -35,7 +38,11 @@ def readDataBase():
 
 
 def main():
-    readDataBase()
+    try:
+        readDataBase()
+    except:
+        print("can't read databse!")
+    
     print("1 - login")
     print("2 - regestration")
     result = input()
