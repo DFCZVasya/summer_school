@@ -18,6 +18,7 @@ def registration():
     database = open(filename, "w")
     for user in users:
         database.write(user[0] + ',' + user[1] + '\n')
+    database.close()
     return True    
 
 def login():
