@@ -26,17 +26,16 @@ def login():
     return False
 
 def readDataBase():
-    
-
-
-
-
-
+    dataBase = open(filename, "r")
+    a = dataBase.read()
+    print(a)
+    dataBase.close()
 
 
 
 
 def main():
+    readDataBase()
     print("1 - login")
     print("2 - regestration")
     result = input()
