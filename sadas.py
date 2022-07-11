@@ -1,4 +1,5 @@
 users = [["test", "test"], ["admin", "admin"]]
+filename = "data_base.csv"
 
 def registration():
     name = input("enter name: ")
@@ -23,6 +24,17 @@ def login():
         if name == user[0] and password == user[1]:
             return True
     return False
+
+def readDataBase():
+    
+
+
+
+
+
+
+
+
 
 def main():
     print("1 - login")
