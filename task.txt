@@ -4,4 +4,9 @@
 4*) напечатать матрицу в файл 
 
 
+pip3 install pygame
+
+
+sudo apt install python3-pip
+
 
