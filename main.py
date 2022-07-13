@@ -1,21 +1,15 @@
-import random
+import pygame
 
-n = int(input())
-m = int(input())
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode([400,300])
+    running = True
+    while running:
+        for event in pygame.event.get():
+            print(event)
+            if event.type == pygame.QUIT:
+                running = False
+    pygame.quit()
 
-matrix = []
-line = []
-for i in range(n):
-    for j in range(m):
-        line.append(random.randint(-100, 100))
-    matrix.append(line.copy())
-    line = []
-
-print(matrix)
-
-file = open("test.txt", "w")
-for i in range(n):
-    for j in range(m):
-        file.write(str(matrix[i][j]) + " ")
-    file.write("\n")
-
+if __name__ == "__main__":
+    main()
