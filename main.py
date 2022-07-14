@@ -5,6 +5,8 @@ height = 500
 
 bg = pygame.image.load("img/pygame_bg.jpg")
 
+player_stand = pygame.image.load("img/pygame_idle.png")
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode([width,height])
@@ -13,7 +15,7 @@ def main():
     y = 100
     dy = 2
     dx = 2
-    pygame.draw.rect(screen, (255,0,0), pygame.Rect(x,y,100,100))
+
     pygame.display.update()
     while running:
         screen.blit(bg,(0,0))
@@ -25,14 +27,14 @@ def main():
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and x > 0:
             x -= dx
-        if keys[pygame.K_RIGHT] and x < 400:
+        if keys[pygame.K_RIGHT] and x < 440:
             x += dx
         if keys[pygame.K_UP] and y > 0:
             y -= dy
-        if keys[pygame.K_DOWN] and y < 400:
+        if keys[pygame.K_DOWN] and y < 429:
             y += dy
 
-        pygame.draw.rect(screen, (255,0,0), pygame.Rect(x,y,100,100))
+        screen.blit(player_stand,(x,y))
         pygame.display.update()
     pygame.quit()
 
