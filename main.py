@@ -1,5 +1,7 @@
 import pygame
-
+animCount = 0
+isRight = False
+isLeft = False
 width = 500
 height = 500 
 x = 100
@@ -25,10 +27,13 @@ def drawWindow():
     pygame.display.update()
 
 def main():
-    global x,y,dx,dy
+    global x,y,dx,dy, isRight, isLeft, animCount
     pygame.init()
     running = True
     while running:
+        animCount += 1
+        if animCount > 30:
+            animCount = 0
         pygame.time.delay(10)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -37,8 +42,14 @@ def main():
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and x > 0:
             x -= dx
+            isLeft = True
+        else:
+            isLeft = False
         if keys[pygame.K_RIGHT] and x < 440:
             x += dx
+            isRight = True
+        else:
+            isRight = False
         if keys[pygame.K_UP] and y > 0:
             y -= dy
         if keys[pygame.K_DOWN] and y < 429:
