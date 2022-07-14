@@ -1,4 +1,5 @@
 import pygame
+from button import Button
 animCount = 0
 isRight = False
 isLeft = False
@@ -21,21 +22,28 @@ player_left = [pygame.image.load("img/pygame_left_1.png"), pygame.image.load("im
 pygame.image.load("img/pygame_left_3.png"),pygame.image.load("img/pygame_left_4.png"),
 pygame.image.load("img/pygame_left_5.png"),pygame.image.load("img/pygame_left_6.png")]
 
+def test():
+    print("button pressed")
+
 def drawWindow():
     global isLeft, isRight, animCount
     screen.blit(bg,(0,0))
-    
+    b = Button(screen, 100,100, 200, 200, pygame.font.SysFont('Arial', 40),"test", test)
     if isRight:
         screen.blit(player_right[animCount//6],(x,y))
     elif isLeft:
         screen.blit(player_left[animCount//6],(x,y))
     else:
         screen.blit(player_stand,(x,y))
+    b.process()
     pygame.display.update()
+
+
 
 def main():
     global x,y,dx,dy, isRight, isLeft, animCount
     pygame.init()
+    
     running = True
     while running:
         animCount += 1
@@ -62,6 +70,7 @@ def main():
         if keys[pygame.K_DOWN] and y < 429:
             y += dy
         drawWindow() 
+        
     pygame.quit()
 
 if __name__ == "__main__":
