@@ -3,6 +3,8 @@ import pygame
 width = 500
 height = 500 
 
+bg = pygame.image.load("img/pygame_bg.jpg")
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode([width,height])
@@ -14,7 +16,7 @@ def main():
     pygame.draw.rect(screen, (255,0,0), pygame.Rect(x,y,100,100))
     pygame.display.update()
     while running:
-        screen.fill((0,0,0))
+        screen.blit(bg,(0,0))
         pygame.time.delay(10)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
