@@ -1,6 +1,8 @@
+from math import fabs
 import pygame
 from button import Button
 animCount = 0
+isJump = False
 isRight = False
 isLeft = False
 width = 500
@@ -25,23 +27,25 @@ pygame.image.load("img/pygame_left_5.png"),pygame.image.load("img/pygame_left_6.
 def test():
     print("button pressed")
 
+jumpCount = 10
+
 def drawWindow():
     global isLeft, isRight, animCount
     screen.blit(bg,(0,0))
-    b = Button(screen, 100,100, 200, 200, pygame.font.SysFont('Arial', 40),"test", test)
+    #b = Button(screen, 100,100, 200, 200, pygame.font.SysFont('Arial', 40))
     if isRight:
         screen.blit(player_right[animCount//6],(x,y))
     elif isLeft:
         screen.blit(player_left[animCount//6],(x,y))
     else:
         screen.blit(player_stand,(x,y))
-    b.process()
+    #b.process()
     pygame.display.update()
 
 
 
 def main():
-    global x,y,dx,dy, isRight, isLeft, animCount
+    global x,y,dx,dy, isRight, isLeft, animCount, isJump, jumpCount
     pygame.init()
     
     running = True
@@ -55,6 +59,8 @@ def main():
                 running = False
         
         keys = pygame.key.get_pressed()
+
+
         if keys[pygame.K_LEFT] and x > 0:
             x -= dx
             isLeft = True
@@ -65,10 +71,19 @@ def main():
             isRight = True
         else:
             isRight = False
-        if keys[pygame.K_UP] and y > 0:
-            y -= dy
-        if keys[pygame.K_DOWN] and y < 429:
-            y += dy
+        if not isJump:
+            if keys[pygame.K_SPACE]:
+                isJump = True
+            if keys[pygame.K_UP] and y > 0:
+                y -= dy
+            if keys[pygame.K_DOWN] and y < 429:
+                y += dy
+        else:
+            y -= jumpCount**2
+            jumpCount -= 1
+            if jumpCount == -10:
+                isJump = False
+                jumpCount = 10
         drawWindow() 
         
     pygame.quit()
