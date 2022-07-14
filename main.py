@@ -11,6 +11,14 @@ bg = pygame.image.load("img/pygame_bg.jpg")
 
 player_stand = pygame.image.load("img/pygame_idle.png")
 
+player_right = [pygame.image.load("img/pygame_right_1.png"), pygame.image.load("img/pygame_right_2.png"),
+pygame.image.load("img/pygame_right_3.png"),pygame.image.load("img/pygame_right_4.png"),
+pygame.image.load("img/pygame_right_5.png"),pygame.image.load("img/pygame_right_6.png")]
+
+player_left = [pygame.image.load("img/pygame_left_1.png"), pygame.image.load("img/pygame_left_2.png"),
+pygame.image.load("img/pygame_left_3.png"),pygame.image.load("img/pygame_left_4.png"),
+pygame.image.load("img/pygame_left_5.png"),pygame.image.load("img/pygame_left_6.png")]
+
 def drawWindow():
     screen.blit(bg,(0,0))
     screen.blit(player_stand,(x,y))
