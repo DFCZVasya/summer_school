@@ -22,8 +22,15 @@ pygame.image.load("img/pygame_left_3.png"),pygame.image.load("img/pygame_left_4.
 pygame.image.load("img/pygame_left_5.png"),pygame.image.load("img/pygame_left_6.png")]
 
 def drawWindow():
+    global isLeft, isRight, animCount
     screen.blit(bg,(0,0))
-    screen.blit(player_stand,(x,y))
+    
+    if isRight:
+        screen.blit(player_right[animCount//6],(x,y))
+    elif isLeft:
+        screen.blit(player_left[animCount//6],(x,y))
+    else:
+        screen.blit(player_stand,(x,y))
     pygame.display.update()
 
 def main():
