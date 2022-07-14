@@ -79,9 +79,12 @@ def main():
             if keys[pygame.K_DOWN] and y < 429:
                 y += dy
         else:
-            y -= jumpCount**2
+            if jumpCount > 0:
+                y -= (jumpCount**2)/2
+            else:
+                y += (jumpCount**2)/2
             jumpCount -= 1
-            if jumpCount == -10:
+            if jumpCount == -11:
                 isJump = False
                 jumpCount = 10
         drawWindow() 
