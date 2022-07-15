@@ -3,7 +3,7 @@
 ```
 ¯\_(ツ)_/¯
 ```
-
+https://www.pixilart.com/draw?ref=home-page
 Инструкция как скачать питон
 1) заходим на сайт https://www.python.org/ и скачиваем экзэшник
 
