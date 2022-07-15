@@ -31,3 +31,4 @@ pip install pygame
 ```
 
 @DFCZok - telegram по вопросам
+https://github.com/kidscancode/pygame_tutorials
