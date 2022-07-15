@@ -26,4 +26,8 @@ https://code.visualstudio.com/
 
 если надо, добавьте на рабочий стол. На этом все
 
+```
+pip install pygame
+```
+
 @DFCZok - telegram по вопросам
