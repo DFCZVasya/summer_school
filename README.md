@@ -32,3 +32,4 @@ pip install pygame
 
 @DFCZok - telegram по вопросам
 https://github.com/kidscancode/pygame_tutorials
+https://www.geeksforgeeks.org/overlay-an-image-on-another-image-in-python/
